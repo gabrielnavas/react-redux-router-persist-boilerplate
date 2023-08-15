@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-import { useDispatch, useSelector } from "react-redux";
-
 import {
   decrement,
   increment,
@@ -13,10 +11,12 @@ import {
 
 import { selectUser, logout } from "../../../store/features/user/userSlice";
 
+import { useStoreSelector, useStoreDispatch } from "../../../store/hooks";
+
 export const  CounterPage = () => {
-  const counter = useSelector(selectCounter)
-  const user = useSelector(selectUser)
-  const dispatch = useDispatch()
+  const counter = useStoreSelector(selectCounter)
+  const user = useStoreSelector(selectUser)
+  const dispatch = useStoreDispatch()
 
   const [incrementeBy, setIncrementBy] = useState(0)
 
